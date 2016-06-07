@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Home automation app</title>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="styles/styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+  </head>
+  <body class="container-fullwidth">
+
+    <!-- main container -->
+    <app-container></app-container> 
+
+    <!-- Required polyfills (order matters) -->
+    <script src="/node_modules/es6-shim/es6-shim.min.js"></script>
+    <!--script src="/node_modules/systemjs/dist/system-polyfills.js"></script-->
+    <!--script src="/node_modules/angular2/es6/dev/src/testing/shims_for_IE.js"></script-->
+
+    <script src="/node_modules/angular2/bundles/angular2-polyfills.js"></script>
+    <script src="/node_modules/systemjs/dist/system.src.js"></script>
+    <script src="/node_modules/rxjs/bundles/Rx.js"></script>
+    <script src="/node_modules/angular2/bundles/angular2.dev.js"></script>
+    <script src="/node_modules/angular2/bundles/http.dev.js"></script>
+    <script src="/node_modules/angular2/bundles/router.dev.js"></script>
+    <script src="/node_modules/ng2-bootstrap/bundles/ng2-bootstrap.min.js"></script>
+
+    <script>
+      System.config({
+        packages: {
+          app: {
+            format: 'register',
+            defaultExtension: 'js'
+          }
+        },
+        map: {
+          moment: '/node_modules/moment/moment.js'
+        }
+      });
+      System.import('app/app')
+          .then(null, console.error.bind(console));
+    </script>
+  </body>
+</html>

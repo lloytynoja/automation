@@ -1,0 +1,26 @@
+[
+      {
+            "id": "0cc175b9c0f1b6a831c399e269772661",
+            "name": "Mittari 1",
+            "description": "Kuvaus mittari ykköselle",
+            "location": "Kellari"
+      },
+      {
+            "id": "92eb5ffee6ae2fec3ad71c777531578f",
+            "name": "Mittari 2",
+            "description": "Kuvaus mittari kakkoselle",
+            "location": "Olohuone" 
+      },
+      {
+            "id": "4a8a08f09d37b73795649038408b5f33",
+            "name": "Mittari 3",
+            "description": "Kuvaus mittari kolmoselle",
+            "location": "Pihasauna" 
+      },
+      {
+            "id": "8277e0910d750195b448797616e091ad",
+            "name": "Mittari 4",
+            "description": "Kuvaus mittari neloselle",
+            "location": "Kellari" 
+      }
+]

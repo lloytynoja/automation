@@ -1,0 +1,66 @@
+<div>
+    <div class="container">
+        <div class="row toprow">
+            <div class="col-md-10 view-switch">
+                <div class="navbar">
+                    <ul class="nav navbar-nav">
+                        <li class="toolbar-item">
+                            <a (click)="changeDisplayMode('Card')" [class.active]="!listDisplayModeEnabled">
+                                <span class="glyphicon glyphicon-th"></span> Card View
+                            </a>
+                        </li>
+                        <li class="toolbar-item">
+                            <a (click)="changeDisplayMode('List')" [class.active]="listDisplayModeEnabled">
+                                <span class="glyphicon glyphicon-align-justify"></span> List View
+                            </a>
+                        </li>
+                        <li class="toolbar-item">
+                            <filter-textbox class="navbar-right filter" (changed)="filterChanged($event)"></filter-textbox>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+        <div class="container">
+              <div class="row card-container" [hidden]="listDisplayModeEnabled">
+                    <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="#customer of filteredCustomers">
+                        <device [name]="customer.name" [id]="customer.id" [tags]="customer.tags"></device>
+                    </div>
+                    <div [hidden]="filteredCustomers.length">
+                        No Records Found
+                    </div>
+                </div>
+                <div class="row grid-container" [hidden]="!listDisplayModeEnabled">
+                    <div class="col-md-10">
+                        <div class="table">
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th sort-by="name" (sorted)="sort($event)">Name</th>
+                                        <th sort-by="tags" (sorted)="sort($event)">Tags</th>
+                                        <th sort-by="description" (sorted)="sort($event)">Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="#customer of filteredCustomers">
+                                        <td><a [routerLink]="['Orders',{id:customer.id}]">{{ customer.name }}</a></td>
+                                        <td>
+                                            <span *ngFor="#tag of customer.tags">
+                                              #{{ tag }}
+                                            </span>
+                                        </td>
+                                        <td>{{ customer.description }}</td>
+                                    </tr>
+                                    <tr [hidden]="filteredCustomers.length">
+                                        <td>&nbsp;</td>
+                                        <td colspan="6">No Records Found</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
